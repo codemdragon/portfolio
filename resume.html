@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume - Codem</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: #1b3a5a;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    aside {
+      background-color: #1b3a5a;
+      color: white;
+      padding: 24px;
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+    }
+
+    aside img {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    aside p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .sidebar-section {
+      text-align: left;
+      margin-top: 24px;
+    }
+
+    .sidebar-section h2 {
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 1px solid white;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+    }
+
+    .sidebar-section ul {
+      list-style-type: disc;
+      margin-left: 16px;
+      font-size: 14px;
+      color: #eee;
+    }
+
+    main {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    main section {
+      margin-bottom: 32px;
+    }
+
+    main h1 {
+      font-size: 36px;
+      color: #1b3a5a;
+      font-weight: bold;
+    }
+
+    main p.subtitle {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .underline-bar {
+      width: 64px;
+      height: 4px;
+      background-color: #1b3a5a;
+      margin-top: 8px;
+    }
+
+    .section-title {
+      color: #1b3a5a;
+      font-weight: bold;
+      font-size: 18px;
+      border-bottom: 1px solid #1b3a5a;
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+
+    .text-sm {
+      font-size: 14px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      background-color: #1b3a5a;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #16314b;
+    }
+
+    .btn-secondary {
+      background-color: #333;
+    }
+
+    .btn-secondary:hover {
+      background-color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      aside {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside>
+      <img src="icon.png" alt="Profile">
+      <h1>Codem</h1>
+      <p>Software Developer</p>
+
+      <div class="sidebar-section">
+        <h2>Contact</h2>
+        <ul>
+          <li>📞 +000-000-0000</li>
+          <li>✉️ thisisntarealemail@gmail.com</li>
+          <li>📍 Nixor College</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Python, Git, GitHub</li>
+          <li>Firebase, Scratch</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h2>Languages</h2>
+        <ul>
+          <li>English (Fluent)</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <section>
+        <h1>Codem</h1>
+        <p class="subtitle">Software Developer</p>
+        <div class="underline-bar"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title">About Me</h2>
+        <p class="text-sm">
+          Software dev journey from Blender/Unity to coding. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet convallis metus. Aenean eu turpis neque. Lorem ipsum dolor sit amet.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="section-title">Metrics</h2>
+        <ul class="text-sm">
+          <li>15 Projects</li>
+          <li>4 Companies Used</li>
+          <li>8+ Years Experience</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="section-title">Projects</h2>
+        <ul class="text-sm">
+          <li><strong>Ujala Games</strong> – Scratch + Python (for special needs kids)</li>
+          <li><strong>DnD Portal</strong> – <a href="https://dn-d.vercel.app" target="_blank">dn-d.vercel.app</a></li>
+          <li><strong>Potion Brewer</strong> – <a href="https://alchemy-jade.vercel.app" target="_blank">alchemy-jade.vercel.app</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="section-title">Education</h2>
+        <p class="text-sm">
+          <strong>Nixor College</strong><br>
+          Stats, Computer Science, Physics
+        </p>
+      </section>
+
+      <section class="button-group">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8o3cM1baH40anmnJnV59sqxFKGopheZKdpmvo6ffHB0XTSQ/viewform?usp=sharing"
+           target="_blank" class="btn">
+          Project Form
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8o3cM1baH40anmnJnV59sqxFKGopheZKdpmvo6ffHB0XTSQ/viewform?usp=sharing"
+           target="_blank" class="btn">
+          Contact
+        </a>
+        <a href="resume.html" class="btn btn-secondary">
+          My Resume
+        </a>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
