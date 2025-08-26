@@ -36,7 +36,6 @@
       padding: 10px 0;
     }
 
-
     nav a {
       color: #ccc;
       margin-left: 15px;
@@ -178,14 +177,31 @@
       background-color: #2a2f3a;
       border-radius: 8px;
       padding: 15px;
+      transition: transform 0.3s ease;
     }
 
-    .project-card img {
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image-container {
       width: 100%;
-      height: 160px;
-      object-fit: cover;
+      height: 200px;
+      overflow: hidden;
       border-radius: 5px;
       margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .project-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-image-container img:hover {
+      transform: scale(1.05);
     }
 
     .project-card h5 {
@@ -196,6 +212,63 @@
     .project-card p {
       font-size: 13px;
       color: #ccc;
+      margin-bottom: 8px;
+    }
+
+    .project-links a {
+      color: #f15a47;
+      text-decoration: none;
+      font-size: 13px;
+      margin-right: 10px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      margin: auto;
+      display: block;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .modal-close:hover {
+      color: #f15a47;
+    }
+
+    .modal-caption {
+      margin: 15px auto;
+      text-align: center;
+      color: #ccc;
+      font-size: 16px;
+      max-width: 80%;
     }
 
     @media (max-width: 768px) {
@@ -215,6 +288,10 @@
 
       nav {
         display: none;
+      }
+      
+      .modal-content {
+        max-width: 95%;
       }
     }
   </style>
@@ -285,21 +362,88 @@
     <h4 class="projects-title" id="projects">Projects</h4>
     <div class="projects-grid">
       <div class="project-card">
-        <img src="Ujalagame.png" alt="Scratch and Python games for Ujala">
+        <div class="project-image-container" onclick="openModal('Ujalagame.png', 'Ujala Educational Games')">
+          <img src="Ujalagame.png" alt="Scratch and Python games for Ujala">
+        </div>
         <h5>Ujala Educational Games</h5>
         <p>Scratch and Python games made for special needs kids at Ujala Foundation.</p>
       </div>
+      
       <div class="project-card">
-        <img src="dndportal.png" alt="DnD Portal Project">
+        <div class="project-image-container" onclick="openModal('dndportal.png', 'DnD Portal')">
+          <img src="dndportal.png" alt="DnD Portal Project">
+        </div>
         <h5>DnD Portal</h5>
-        <p>A free DnD campaign tool for dungeon masters. <a href="https://dn-d-portal.vercel.app" target="_blank" style="color: #f15a47;">dn-d.vercel.app</a></p>
+        <p>A free DnD campaign tool for dungeon masters.</p>
+        <div class="project-links">
+          <a href="https://dn-d-portal.vercel.app" target="_blank">dn-d.vercel.app</a>
+        </div>
       </div>
+      
       <div class="project-card">
-        <img src="alchemy.jpg" alt="Enhanced Potion Brewer">
+        <div class="project-image-container" onclick="openModal('alchemy.jpg', 'Enhanced Potion Brewer')">
+          <img src="alchemy.jpg" alt="Enhanced Potion Brewer">
+        </div>
         <h5>Enhanced Potion Brewer</h5>
-        <p>Customizable potion/poison crafting UI for DMs. <a href="https://alchemy-jade.vercel.app" target="_blank" style="color: #f15a47;">alchemy-jade.vercel.app</a></p>
+        <p>Customizable potion/poison crafting UI for DMs.</p>
+        <div class="project-links">
+          <a href="https://alchemy-jade.vercel.app" target="_blank">alchemy-jade.vercel.app</a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image-container" onclick="openModal('Sidebar.png', 'Codem Sidebar')">
+          <img src="Sidebar.png" alt="Codem Sidebar">
+        </div>
+        <h5>Codem Sidebar</h5>
+        <p>A side assistant to keep on your screen that controls your cursor and performs tasks set by the user.</p>
+        <div class="project-links">
+          <a href="https://www.mediafire.com/file/hszu3i4p6oz4i59/sidebar_app.exe/file" target="_blank">Download</a>
+        </div>
       </div>
     </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div id="modalCaption" class="modal-caption"></div>
+    </div>
   </div>
+
+  <script>
+    // Modal functionality
+    function openModal(imageSrc, captionText) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const caption = document.getElementById('modalCaption');
+      
+      modal.style.display = 'flex';
+      modalImg.src = imageSrc;
+      caption.innerHTML = captionText;
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    // Close modal when clicking outside the image
+    window.onclick = function(event) {
+      const modal = document.getElementById('imageModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
