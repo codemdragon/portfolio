@@ -226,6 +226,44 @@
       text-decoration: underline;
     }
 
+    /* Version Dropdown Styles */
+    .version-dropdown {
+      margin-top: 10px;
+    }
+    
+    .version-dropdown select {
+      background-color: #1a2028;
+      color: white;
+      border: 1px solid #f15a47;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 13px;
+      width: 100%;
+      cursor: pointer;
+    }
+    
+    .version-dropdown select option {
+      background-color: #2a2f3a;
+      color: white;
+    }
+    
+    .version-dropdown button {
+      background-color: #f15a47;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 13px;
+      margin-top: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .version-dropdown button:hover {
+      background-color: #e04e3f;
+    }
+
     /* Modal Styles */
     .modal {
       display: none;
@@ -429,18 +467,23 @@
         </div>
       </div>
       
+      <!-- Codem Sidebar Project with Version Dropdown -->
       <div class="project-card">
         <div class="project-image-container" onclick="openModal('Sidebar.png', 'Codem Sidebar')">
           <img src="Sidebar.png" alt="Codem Sidebar">
         </div>
         <h5>Codem Sidebar</h5>
         <p>A side assistant to keep on your screen that controls your cursor and performs tasks set by the user.</p>
-        <div class="project-links">
-          <a href="https://www.mediafire.com/file/hszu3i4p6oz4i59/sidebar_app.exe/file" target="_blank">Download V1</a>
-          <br>
-          <a href="https://www.mediafire.com/file/74vidrkruvq063u/sidebar_app.exe/file" target="_blank">Download V2</a>
-          <br>
-          <a href="https://www.mediafire.com/file/kiblf5b8nn7ows6/sidebar_app.zip/file" target="_blank">Download V3</a>
+        
+        <!-- Version Dropdown -->
+        <div class="version-dropdown">
+          <select id="sidebarVersion">
+            <option value="https://www.mediafire.com/file/hszu3i4p6oz4i59/sidebar_app.exe/file">Version 1</option>
+            <option value="https://www.mediafire.com/file/74vidrkruvq063u/sidebar_app.exe/file">Version 2</option>
+            <option value="https://www.mediafire.com/file/kiblf5b8nn7ows6/sidebar_app.zip/file">Version 3</option>
+            <option value="https://www.mediafire.com/file/uqqdun64yuygn2e/sidebar_app.exe/file">Version 4</option>
+          </select>
+          <button onclick="downloadSelectedVersion()">Download Selected Version</button>
         </div>
       </div>
       
@@ -513,6 +556,15 @@
         closeModal();
       }
     });
+
+    // Function to handle version selection and download
+    function downloadSelectedVersion() {
+      const versionSelect = document.getElementById('sidebarVersion');
+      const selectedUrl = versionSelect.value;
+      if (selectedUrl) {
+        window.open(selectedUrl, '_blank');
+      }
+    }
   </script>
 </body>
 </html>
