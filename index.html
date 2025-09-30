@@ -437,15 +437,21 @@
         </div>
       </div>
       
-      <!-- NEW: Codem's Convertor Project -->
+      <!-- NEW: Codem's Convertor Project with Version Dropdown -->
       <div class="project-card">
         <div class="project-image-container" onclick="openModal('Ytdwn.png', 'Codem\'s Convertor')">
           <img src="Ytdwn.png" alt="Codem's Convertor">
         </div>
         <h5>Codem's Convertor</h5>
         <p>An epic tool to convert your Music and vids over from yt. With the addition of an in app music tester. You'll need ffmpeg - grab it straight from the link in settings or download from https://www.ffmpeg.org/download.html</p>
-        <div class="project-links">
-          <a href="http://www.mediafire.com/file/0qtet8h4v39hlkn/Codem%27s_Convertor.zip" target="_blank">Download Version 1</a>
+        
+        <!-- Version Dropdown -->
+        <div class="version-dropdown">
+          <select id="convertorVersion">
+            <option value="http://www.mediafire.com/file/0qtet8h4v39hlkn/Codem%27s_Convertor.zip">Version 1</option>
+            <option value="https://www.mediafire.com/file/4fi59ty63anx2ub/Codem's+ConvertorV2.zip/file">Version 2</option>
+          </select>
+          <button onclick="downloadSelectedConvertorVersion()">Download Selected Version</button>
         </div>
       </div>
       
@@ -569,9 +575,18 @@
       }
     });
 
-    // Function to handle version selection and download
+    // Function to handle version selection and download for Sidebar
     function downloadSelectedVersion() {
       const versionSelect = document.getElementById('sidebarVersion');
+      const selectedUrl = versionSelect.value;
+      if (selectedUrl) {
+        window.open(selectedUrl, '_blank');
+      }
+    }
+
+    // Function to handle version selection and download for Convertor
+    function downloadSelectedConvertorVersion() {
+      const versionSelect = document.getElementById('convertorVersion');
       const selectedUrl = versionSelect.value;
       if (selectedUrl) {
         window.open(selectedUrl, '_blank');
