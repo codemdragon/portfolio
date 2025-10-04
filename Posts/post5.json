@@ -1,0 +1,9 @@
+{
+  "id": 5,
+  "title": "Did You Know? The Origin of 'Debugging'",
+  "excerpt": "A fun historical fact about programming terminology that might surprise you.",
+  "category": "fun-facts",
+  "date": "2023-09-20",
+  "author": "Codem",
+  "content": "<h2>The Story Behind 'Debugging'</h2><p>Here's a fun fact that might surprise you about the origin of the term \"debugging\" in programming.</p><h3>The Real Story</h3><p>While many believe the term comes from when Grace Hopper found an actual moth in a computer, the truth is more nuanced.</p><p>The term \"bug\" was actually used in engineering contexts long before computers. Thomas Edison used it in his notebooks in the 1870s to describe technical glitches.</p><p>However, Grace Hopper did popularize the term in computing when she literally found a moth stuck in a relay of the Harvard Mark II computer in 1947. She taped the moth into the computer's logbook with the note \"First actual case of bug being found.\"</p><p>So while the term existed before, Grace Hopper's incident definitely helped cement \"debugging\" in the computing lexicon!</p>"
+}
