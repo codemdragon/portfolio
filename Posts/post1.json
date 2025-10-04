@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "title": "Codem Study Hub: Major Update Released",
+  "excerpt": "Just released a major update to Codem Study Hub with new features including spaced repetition and note filtering.",
+  "category": "project-updates",
+  "date": "2023-10-15",
+  "author": "Codem",
+  "content": "<h2>What's New in Codem Study Hub</h2><p>I'm excited to announce a major update to Codem Study Hub! This release includes several new features that I've been working on for the past few months.</p><h3>Spaced Repetition System</h3><p>The new spaced repetition algorithm helps you study more efficiently by showing you flashcards at optimal intervals based on your performance.</p><h3>Filtered Revision Notes</h3><p>You can now filter and download revision notes based on specific topics or difficulty levels, making it easier to focus on what you need to study.</p><h3>Improved UI</h3><p>The interface has been completely redesigned for better usability and a more modern look.</p><p>Check it out at <a href='https://codem-studyset.vercel.app' target='_blank'>codem-studyset.vercel.app</a>!</p>"
+}
