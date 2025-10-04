@@ -443,140 +443,38 @@
     let allPosts = [];
     let filteredPosts = [];
 
-    // Load posts from JSON files
+    // Load posts from JSON files in the Posts folder
     async function loadPosts() {
       try {
-        // This would typically fetch from your server/API
-        // For this example, we'll use a mock data structure
-        // In production, you would fetch from your Posts folder
-        const mockPosts = [
-          {
-            id: 1,
-            title: "Codem Study Hub: Major Update Released",
-            excerpt: "Just released a major update to Codem Study Hub with new features including spaced repetition and note filtering.",
-            category: "project-updates",
-            date: "2023-10-15",
-            author: "Codem",
-            content: `
-              <h2>What's New in Codem Study Hub</h2>
-              <p>I'm excited to announce a major update to Codem Study Hub! This release includes several new features that I've been working on for the past few months.</p>
-              
-              <h3>Spaced Repetition System</h3>
-              <p>The new spaced repetition algorithm helps you study more efficiently by showing you flashcards at optimal intervals based on your performance.</p>
-              
-              <h3>Filtered Revision Notes</h3>
-              <p>You can now filter and download revision notes based on specific topics or difficulty levels, making it easier to focus on what you need to study.</p>
-              
-              <h3>Improved UI</h3>
-              <p>The interface has been completely redesigned for better usability and a more modern look.</p>
-              
-              <p>Check it out at <a href="https://codem-studyset.vercel.app" target="_blank">codem-studyset.vercel.app</a>!</p>
-            `
-          },
-          {
-            id: 2,
-            title: "Introducing Codem Web Capture",
-            excerpt: "A new browser extension for capturing websites as PNG images with customizable settings.",
-            category: "new-projects",
-            date: "2023-10-10",
-            author: "Codem",
-            content: `
-              <h2>Meet Codem Web Capture</h2>
-              <p>I've just released a new browser extension called Codem Web Capture that makes it easy to capture websites as PNG images.</p>
-              
-              <h3>Key Features</h3>
-              <ul>
-                <li>Capture full pages or specific sections</li>
-                <li>Customizable image quality settings</li>
-                <li>One-click downloading</li>
-                <li>Works on most modern websites</li>
-              </ul>
-              
-              <p>This tool was born out of my own frustration with existing screenshot tools that couldn't properly capture entire web pages. After several iterations, I'm happy with how it turned out.</p>
-              
-              <p>You can download Version 1 from the link in my portfolio.</p>
-            `
-          },
-          {
-            id: 3,
-            title: "The Power of Gesture Controls",
-            excerpt: "Exploring how hand gestures can revolutionize user interfaces in my latest project.",
-            category: "discoveries",
-            date: "2023-10-05",
-            author: "Codem",
-            content: `
-              <h2>Gesture-Based Interfaces</h2>
-              <p>While working on Codem Virtual Mousepad, I discovered some fascinating possibilities with gesture-based controls.</p>
-              
-              <h3>How It Works</h3>
-              <p>Using computer vision and machine learning, the system can detect hand movements and translate them into cursor movements and clicks.</p>
-              
-              <h3>Potential Applications</h3>
-              <p>This technology could be useful in various scenarios:</p>
-              <ul>
-                <li>Accessibility tools for people with mobility issues</li>
-                <li>Presentation controls without physical devices</li>
-                <li>Gaming interfaces</li>
-                <li>Interactive displays in public spaces</li>
-              </ul>
-              
-              <p>I'm excited to continue exploring this technology and see where it leads!</p>
-            `
-          },
-          {
-            id: 4,
-            title: "Learning Firebase: Challenges & Solutions",
-            excerpt: "My journey implementing Firebase in projects and overcoming common hurdles.",
-            category: "learning-curves",
-            date: "2023-09-28",
-            author: "Codem",
-            content: `
-              <h2>My Firebase Learning Journey</h2>
-              <p>Implementing Firebase in my projects presented some interesting challenges that taught me valuable lessons.</p>
-              
-              <h3>Initial Hurdles</h3>
-              <p>When I first started with Firebase, I struggled with:</p>
-              <ul>
-                <li>Understanding the real-time database structure</li>
-                <li>Setting up proper authentication flows</li>
-                <li>Managing security rules effectively</li>
-              </ul>
-              
-              <h3>Solutions I Discovered</h3>
-              <p>Through trial and error, I found these approaches helpful:</p>
-              <ul>
-                <li>Using Firestore instead of Realtime Database for more complex data structures</li>
-                <li>Implementing proper error handling for authentication</li>
-                <li>Testing security rules thoroughly before deployment</li>
-              </ul>
-              
-              <p>These lessons have made me more confident in building full-stack applications.</p>
-            `
-          },
-          {
-            id: 5,
-            title: "Did You Know? The Origin of 'Debugging'",
-            excerpt: "A fun historical fact about programming terminology that might surprise you.",
-            category: "fun-facts",
-            date: "2023-09-20",
-            author: "Codem",
-            content: `
-              <h2>The Story Behind 'Debugging'</h2>
-              <p>Here's a fun fact that might surprise you about the origin of the term "debugging" in programming.</p>
-              
-              <h3>The Real Story</h3>
-              <p>While many believe the term comes from when Grace Hopper found an actual moth in a computer, the truth is more nuanced.</p>
-              
-              <p>The term "bug" was actually used in engineering contexts long before computers. Thomas Edison used it in his notebooks in the 1870s to describe technical glitches.</p>
-              
-              <p>However, Grace Hopper did popularize the term in computing when she literally found a moth stuck in a relay of the Harvard Mark II computer in 1947. She taped the moth into the computer's logbook with the note "First actual case of bug being found."</p>
-              
-              <p>So while the term existed before, Grace Hopper's incident definitely helped cement "debugging" in the computing lexicon!</p>
-            `
-          }
+        // List of JSON files in the Posts folder
+        const postFiles = [
+          'Posts/post1.json',
+          'Posts/post2.json',
+          'Posts/post3.json',
+          'Posts/post4.json',
+          'Posts/post5.json'
         ];
 
-        allPosts = mockPosts;
+        // Fetch all posts
+        const postPromises = postFiles.map(file => 
+          fetch(file)
+            .then(response => {
+              if (!response.ok) throw new Error(`Failed to load ${file}`);
+              return response.json();
+            })
+            .catch(error => {
+              console.error(`Error loading ${file}:`, error);
+              return null;
+            })
+        );
+
+        const posts = await Promise.all(postPromises);
+        
+        // Filter out any failed requests and sort by date (newest first)
+        allPosts = posts
+          .filter(post => post !== null)
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+        
         filteredPosts = [...allPosts];
         renderPosts();
       } catch (error) {
