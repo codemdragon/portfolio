@@ -1,0 +1,9 @@
+{
+  "id": 2,
+  "title": "Introducing Codem Web Capture",
+  "excerpt": "A new browser extension for capturing websites as PNG images with customizable settings.",
+  "category": "new-projects",
+  "date": "2023-10-10",
+  "author": "Codem",
+  "content": "<h2>Meet Codem Web Capture</h2><p>I've just released a new browser extension called Codem Web Capture that makes it easy to capture websites as PNG images.</p><h3>Key Features</h3><ul><li>Capture full pages or specific sections</li><li>Customizable image quality settings</li><li>One-click downloading</li><li>Works on most modern websites</li></ul><p>This tool was born out of my own frustration with existing screenshot tools that couldn't properly capture entire web pages. After several iterations, I'm happy with how it turned out.</p><p>You can download Version 1 from the link in my portfolio.</p>"
+}
