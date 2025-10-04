@@ -443,44 +443,42 @@
     let allPosts = [];
     let filteredPosts = [];
 
-    // Load posts from JSON files in the Posts folder
     async function loadPosts() {
-      try {
-        // List of JSON files in the Posts folder
-        const postFiles = [
-          'Posts/post1.json',
-          'Posts/post2.json',
-          'Posts/post3.json',
-          'Posts/post4.json',
-          'Posts/post5.json'
-        ];
+    try {
+        // Fetch the index file that lists all post files
+        const indexResponse = await fetch('Posts/posts-index.json');
+        if (!indexResponse.ok) throw new Error('Failed to load posts index');
+        const indexData = await indexResponse.json();
 
-        // Fetch all posts
-        const postPromises = postFiles.map(file => 
-          fetch(file)
+        // Build full paths for each post file
+        const postFiles = indexData.posts.map(filename => `Posts/${filename}`);
+
+        // Load all posts
+        const postPromises = postFiles.map(file =>
+        fetch(file)
             .then(response => {
-              if (!response.ok) throw new Error(`Failed to load ${file}`);
-              return response.json();
+            if (!response.ok) throw new Error(`Failed to load ${file}`);
+            return response.json();
             })
             .catch(error => {
-              console.error(`Error loading ${file}:`, error);
-              return null;
+            console.error(`Error loading ${file}:`, error);
+            return null;
             })
         );
 
         const posts = await Promise.all(postPromises);
-        
+
         // Filter out any failed requests and sort by date (newest first)
         allPosts = posts
-          .filter(post => post !== null)
-          .sort((a, b) => new Date(b.date) - new Date(a.date));
-        
+        .filter(post => post !== null)
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
         filteredPosts = [...allPosts];
         renderPosts();
-      } catch (error) {
+    } catch (error) {
         console.error('Error loading posts:', error);
         document.getElementById('postsGrid').innerHTML = '<div class="no-results">Error loading posts. Please try again later.</div>';
-      }
+    }
     }
 
     // Render posts to the grid
