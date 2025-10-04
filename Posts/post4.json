@@ -1,0 +1,9 @@
+{
+  "id": 4,
+  "title": "Learning Firebase: Challenges & Solutions",
+  "excerpt": "My journey implementing Firebase in projects and overcoming common hurdles.",
+  "category": "learning-curves",
+  "date": "2023-09-28",
+  "author": "Codem",
+  "content": "<h2>My Firebase Learning Journey</h2><p>Implementing Firebase in my projects presented some interesting challenges that taught me valuable lessons.</p><h3>Initial Hurdles</h3><ul><li>Understanding the real-time database structure</li><li>Setting up proper authentication flows</li><li>Managing security rules effectively</li></ul><h3>Solutions I Discovered</h3><ul><li>Using Firestore instead of Realtime Database for more complex data structures</li><li>Implementing proper error handling for authentication</li><li>Testing security rules thoroughly before deployment</li></ul><p>These lessons have made me more confident in building full-stack applications.</p>"
+}
