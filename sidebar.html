@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codem Sidebar | Productivity Sidebar for Developers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0cf;
+            --primary-dark: #08a;
+            --secondary: #6c63ff;
+            --dark: #0a0a14;
+            --darker: #050510;
+            --light: #e0f7ff;
+            --accent: #00ffcc;
+            --glow: 0 0 10px rgba(0, 207, 255, 0.7);
+            --glow-strong: 0 0 20px rgba(0, 207, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: var(--glow);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(5, 5, 16, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 207, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            filter: drop-shadow(0 0 8px rgba(0, 207, 255, 0.7));
+            animation: pulse 3s infinite;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow-strong);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 207, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #b0e0ff;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .hero-buttons .cta-button {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons .secondary-button {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .hero-buttons .secondary-button:hover {
+            background: rgba(0, 207, 255, 0.1);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 207, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-duration: 20s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            width: 30px;
+            height: 30px;
+            animation-duration: 25s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            width: 25px;
+            height: 25px;
+            animation-duration: 18s;
+        }
+
+        .floating-element:nth-child(4) {
+            top: 40%;
+            left: 70%;
+            width: 35px;
+            height: 35px;
+            animation-duration: 22s;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(10, 15, 30, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 207, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), var(--glow);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: var(--glow);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Installation Section */
+        .installation {
+            background: rgba(5, 10, 20, 0.7);
+            border-top: 1px solid rgba(0, 207, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 207, 255, 0.1);
+        }
+
+        .code-block-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .code-block {
+            background: rgba(0, 10, 20, 0.8);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid var(--primary);
+            font-family: monospace;
+            overflow-x: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-block code {
+            color: var(--accent);
+            font-size: 1rem;
+            display: block;
+            white-space: pre;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            background: rgba(0, 207, 255, 0.2);
+            border: 1px solid var(--primary);
+            color: var(--light);
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            font-family: 'Exo 2', sans-serif;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: rgba(0, 207, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .copy-btn.copied {
+            background: var(--accent);
+            color: var(--darker);
+            border-color: var(--accent);
+        }
+
+        /* Downloads Section */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .download-card {
+            background: rgba(10, 15, 30, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 207, 255, 0.2);
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), var(--glow);
+        }
+
+        .download-card.latest {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+        }
+
+        .download-badge {
+            background: var(--accent);
+            color: var(--darker);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* API Section */
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(10, 15, 30, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .api-table th {
+            background: rgba(0, 207, 255, 0.2);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .api-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 207, 255, 0.1);
+        }
+
+        .api-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .api-table tr:hover {
+            background: rgba(0, 207, 255, 0.05);
+        }
+
+        /* Tutorials Section */
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tutorial-card {
+            background: rgba(10, 15, 30, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 207, 255, 0.2);
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), var(--glow);
+        }
+
+        .tutorial-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--darker);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(0, 207, 255, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0e0ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 207, 255, 0.1);
+            color: #8aa0b8;
+            font-size: 0.9rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--darker);
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            box-shadow: var(--glow-strong);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+
+            .copy-btn {
+                position: relative;
+                top: auto;
+                right: auto;
+                display: block;
+                margin-top: 10px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Logo placeholder - in a real implementation, you would use Logo.png -->
+                <div class="logo-placeholder">
+                    <i class="fas fa-code" style="font-size: 50px; color: var(--primary);"></i>
+                </div>
+                <div class="logo-text">CODEM</div>
+            </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#downloads">Downloads</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#api">API</a></li>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                        <li><a href="#integration">Integration</a></li>
+                        <li><a href="#versions">Version History</a></li>
+                    </ul>
+                </nav>
+            <a href="#downloads" class="cta-button">Download Now</a>
+        </div>
+    </header>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="copyToast">Code copied to clipboard!</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="container fade-in">
+            <h1>CODEM SIDEBAR</h1>
+            <p>A lightweight, customizable productivity sidebar for Windows, Linux, and macOS — built to launch tools, automate tasks, and integrate with other apps via a local secure API.</p>
+            <div class="hero-buttons">
+                <a href="#downloads" class="cta-button">Download Latest (V5)</a>
+                <a href="#features" class="cta-button secondary-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2> D Features</h2>
+                <p>Powerful tools to boost your productivity</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Profile-based Organization</h3>
+                    <p>Separate workspaces with unique buttons and layouts for different tasks and projects.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Configurable API</h3>
+                    <p>Control the sidebar from any app, locally and securely with a well-documented API.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>API Key Protection</h3>
+                    <p>Each installation has its own generated secret key for secure communication.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Cross-Platform Support</h3>
+                    <p>Runs seamlessly on Windows, macOS, and Linux with a consistent experience.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Action Triggers</h3>
+                    <p>Open programs, run scripts, or send shortcuts with a single click.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>External Integration</h3>
+                    <p>Other apps can trigger sidebar actions with the included sidebar_client.py.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="section installation">
+        <div class="container">
+            <div class="section-title">
+                <h2>📥 Downloads</h2>
+                <p>Get the latest version of Codem Sidebar</p>
+            </div>
+            <div class="fade-in">
+                <div class="downloads-grid">
+                    <div class="download-card latest">
+                        <div class="download-badge">Latest Version</div>
+                        <h3>Version 5</h3>
+                        <p>Latest release with API integration</p>
+                        <p style="color: var(--accent); margin: 10px 0;">Coming Soon</p>
+                        <a href="#" class="cta-button" style="pointer-events: none; opacity: 0.7;">Download</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Version 4</h3>
+                        <p>Bug fixes and performance improvements</p>
+                        <a href="https://www.mediafire.com/file/uqqdun64yuygn2e/sidebar_app.exe/file" class="cta-button" target="_blank">Download</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Version 3</h3>
+                        <p>UI improvements and theme system</p>
+                        <a href="https://www.mediafire.com/file/kiblf5b8nn7ows6/sidebar_app.zip/file" class="cta-button" target="_blank">Download</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Version 2</h3>
+                        <p>Search and profile management</p>
+                        <a href="https://www.mediafire.com/file/74vidrkruvq063u/sidebar_app.exe/file" class="cta-button" target="_blank">Download</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Version 1</h3>
+                        <p>Initial release with basic functionality</p>
+                        <a href="https://www.mediafire.com/file/hszu3i4p6oz4i59/sidebar_app.exe/file" class="cta-button" target="_blank">Download</a>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: #b0e0ff;">
+                    All downloads are standalone executables built with PyInstaller. No Python installation required.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>🛠 Installation & Setup</h2>
+                <p>Get started with Codem Sidebar</p>
+            </div>
+            <div class="fade-in">
+                <h3>🚀 Quick Start</h3>
+                <p>Download the latest version from the <a href="#downloads" style="color: var(--primary);">Downloads section</a> and run the executable. The sidebar will start automatically.</p>
+                
+                <h3>🔧 For Developers</h3>
+                <p>If you want to integrate with the sidebar API from your own applications, install the Python client:</p>
+                <div class="code-block-container">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <div class="code-block">
+                        <code>pip install requests</code>
+                    </div>
+                </div>
+                
+                <p>Download the sidebar client for API integration:</p>
+                <div class="code-block-container">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <div class="code-block">
+                        <code># sidebar_client.py is available for API integration<br># Download it from the project repository</code>
+                    </div>
+                </div>
+
+                <h3>🎯 First Run</h3>
+                <p>When you first run the sidebar:</p>
+                <ul style="margin-left: 30px; margin-bottom: 20px;">
+                    <li>The sidebar will appear on your screen</li>
+                    <li>Use the "Open Coord Grabber" button to capture screen coordinates</li>
+                    <li>Create your first button with custom actions</li>
+                    <li>Configure profiles for different workflows</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Section -->
+    <section id="api" class="section installation">
+        <div class="container">
+            <div class="section-title">
+                <h2>🔐 API Overview</h2>
+                <p>Control the sidebar programmatically</p>
+            </div>
+            <div class="fade-in">
+                <p>The Sidebar runs a <strong>local HTTP API</strong> at:</p>
+                <div class="code-block-container">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <div class="code-block">
+                        <code>http://127.0.0.1:&lt;port&gt;</code><br>
+                        <code><span class="code-comment"># Default: 8765</span></code>
+                    </div>
+                </div>
+                
+                <h3> Authentication</h3>
+                <p>All routes (except <code>/</code> and <code>/info</code>) require an API key:</p>
+                <div class="code-block-container">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <div class="code-block">
+                        <code>Authorization: Bearer &lt;your_api_key&gt;</code>
+                    </div>
+                </div>
+                
+                <h3> API Endpoints</h3>
+                <table class="api-table">
+                    <thead>
+                        <tr>
+                            <th>Endpoint</th>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/info</code></td>
+                            <td>GET</td>
+                            <td>Check if API is running</td>
+                        </tr>
+                        <tr>
+                            <td><code>/profiles</code></td>
+                            <td>GET</td>
+                            <td>List all available profiles</td>
+                        </tr>
+                        <tr>
+                            <td><code>/profiles/&lt;profile&gt;/buttons</code></td>
+                            <td>GET</td>
+                            <td>List buttons for a given profile</td>
+                        </tr>
+                        <tr>
+                            <td><code>/profiles/&lt;profile&gt;/run/&lt;button_id&gt;</code></td>
+                            <td>POST</td>
+                            <td>Trigger button by numeric ID</td>
+                        </tr>
+                        <tr>
+                            <td><code>/run</code></td>
+                            <td>POST</td>
+                            <td>Trigger button by label name</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>🧩 Quick Tutorials</h2>
+                <p>Common API actions for integration</p>
+            </div>
+            <div class="tutorials-grid">
+                <div class="tutorial-card fade-in">
+                    <div class="tutorial-number">1</div>
+                    <h3>List all available Profiles</h3>
+                    <div class="code-block-container">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>curl -H "Authorization: Bearer &lt;api_key&gt;" \<br>    http://127.0.0.1:8765/profiles</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-card fade-in">
+                    <div class="tutorial-number">2</div>
+                    <h3>List Buttons in a Profile</h3>
+                    <div class="code-block-container">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>curl -H "Authorization: Bearer &lt;api_key&gt;" \<br>    http://127.0.0.1:8765/profiles/default/buttons</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-card fade-in">
+                    <div class="tutorial-number">3</div>
+                    <h3>Execute a Button by ID</h3>
+                    <div class="code-block-container">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>curl -X POST \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    http://127.0.0.1:8765/profiles/default/run/0</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-card fade-in">
+                    <div class="tutorial-number">4</div>
+                    <h3>Execute a Button by Name</h3>
+                    <div class="code-block-container">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>curl -X POST \<br>    -H "Content-Type: application/json" \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    -d '{"profile": "default", "label": "Open Chrome"}' \<br>    http://127.0.0.1:8765/run</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="section installation">
+        <div class="container">
+            <div class="section-title">
+                <h2>🧱 Integration Ideas</h2>
+                <p>Extend the sidebar's functionality</p>
+            </div>
+            <div class="features-grid fade-in">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Game Launchers</h3>
+                    <p>Launch apps or tools from other software like OBS, VSCode extensions, or game launchers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automation Scripts</h3>
+                    <p>Use in automation scripts to run sidebar macros and streamline your workflow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Desktop Overlays</h3>
+                    <p>Integrate with custom desktop overlays for quick access to your most used tools.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>External Apps</h3>
+                    <p>Connect with local FastAPI or Electron apps as a quick launcher and controller.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Version History Section -->
+    <section id="versions" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>🕐 Version History</h2>
+                <p>Evolution of Codem Sidebar features</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>V1 - Foundation</h3>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Basic button functionality</li>
+                        <li>Button selection</li>
+                        <li>Custom colors</li>
+                        <li>Dark/Light mode</li>
+                        <li>Settings panel</li>
+                        <li>Basic coordinate grabber</li>
+                        <li>Button duplication</li>
+                        <li>Window icon</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>V2 - Organization</h3>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Search functionality</li>
+                        <li>Profile system</li>
+                        <li>Import old buttons</li>
+                        <li>Enhanced button editing</li>
+                        <li>Action reordering</li>
+                        <li>Profile management</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>V3 - Polish & UI</h3>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Gradient backgrounds</li>
+                        <li>Resizable window</li>
+                        <li>Window controls</li>
+                        <li>Theme presets</li>
+                        <li>Decimal wait times</li>
+                        <li>Custom titlebar</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>V4 - Refinement</h3>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Fixed Ctrl/Shift delay</li>
+                        <li>Performance improvements</li>
+                        <li>Stability enhancements</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>V5 - Integration</h3>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Local API support</li>
+                        <li>Secure API key authentication</li>
+                        <li>External app integration</li>
+                        <li>sidebar_client.py</li>
+                        <li>RESTful endpoints</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-crystal-ball"></i>
+                    </div>
+                    <h3>Future Roadmap</h3>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Plugin system</li>
+                        <li>Cloud sync</li>
+                        <li>Mobile companion</li>
+                        <li>Advanced automation</li>
+                        <li>More integrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Codem Sidebar</h3>
+                    <p>A lightweight, customizable productivity sidebar for developers and power users.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#downloads">Downloads</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#api">API Documentation</a></li>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                        <li><a href="#versions">Version History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>MIT License — free to use, modify, and distribute. © 2025 Codem Tools</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('fade-in-active');
+                    }
+                });
+            };
+            
+            // Initial check
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Copy code functionality
+        function copyCode(button) {
+            const container = button.parentElement;
+            const codeBlock = container.querySelector('.code-block');
+            const codeElement = codeBlock.querySelector('code');
+            const textToCopy = codeElement.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Show success feedback
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                // Show toast notification
+                const toast = document.getElementById('copyToast');
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                    toast.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Error!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        // Add copy buttons to all code blocks
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlockContainers = document.querySelectorAll('.code-block-container');
+            codeBlockContainers.forEach(container => {
+                // Only add if there isn't already a copy button
+                if (!container.querySelector('.copy-btn')) {
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'copy-btn';
+                    copyBtn.textContent = 'Copy';
+                    copyBtn.onclick = function() { copyCode(this); };
+                    container.appendChild(copyBtn);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
