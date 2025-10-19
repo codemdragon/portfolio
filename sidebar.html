@@ -493,6 +493,48 @@
             font-family: 'Orbitron', sans-serif;
         }
 
+        /* --- NEW: Tutorial Switcher --- */
+        .tutorial-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .switcher-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .switcher-btn:hover {
+            background: rgba(0, 207, 255, 0.1);
+        }
+        .switcher-btn.active {
+            background: var(--primary);
+            color: var(--darker);
+            box-shadow: var(--glow);
+        }
+
+        /* --- NEW: Code Example Animation --- */
+        .code-example {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+            position: relative;
+        }
+        
+        .code-example[data-lang="python"] {
+            /* Hide python by default */
+            display: none;
+            opacity: 0;
+        }
+        /* --- End New Styles --- */
+
+
         /* Footer */
         footer {
             background: var(--darker);
@@ -672,11 +714,9 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <!-- Logo placeholder - in a real implementation, you would use Logo.png -->
                 <div class="logo-placeholder">
                     <i class="fas fa-code" style="font-size: 50px; color: var(--primary);"></i>
                 </div>
@@ -698,10 +738,8 @@
         </div>
     </header>
 
-    <!-- Toast Notification -->
     <div class="toast" id="copyToast">Code copied to clipboard!</div>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="floating-elements">
             <div class="floating-element"></div>
@@ -719,7 +757,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="features" class="section">
         <div class="container">
             <div class="section-title">
@@ -794,7 +831,6 @@
         </div>
     </section>
 
-    <!-- Downloads Section -->
     <section id="downloads" class="section installation">
         <div class="container">
             <div class="section-title">
@@ -847,7 +883,6 @@
         </div>
     </section>
 
-    <!-- Installation Section -->
     <section id="installation" class="section">
         <div class="container">
             <div class="section-title">
@@ -881,7 +916,6 @@
         </div>
     </section>
 
-    <!-- API Section -->
     <section id="api" class="section installation">
         <div class="container">
             <div class="section-title">
@@ -963,71 +997,170 @@
         </div>
     </section>
 
-    <!-- Tutorials Section -->
     <section id="tutorials" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>🧩 Quick Tutorials</h2>
+                <div class="tutorial-switcher">
+                    <a href="javascript:void(0)" class="switcher-btn active" data-lang="curl">cURL</a>
+                    <a href="javascript:void(0)" class="switcher-btn" data-lang="python">Python</a>
+                </div>
                 <p>Common API actions for integration</p>
             </div>
             <div class="tutorials-grid">
+                
                 <div class="tutorial-card fade-in">
                     <div class="tutorial-number">1</div>
                     <h3>List all available Profiles</h3>
-                    <div class="code-block-container">
+                    
+                    <div class="code-block-container code-example" data-lang="curl">
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         <div class="code-block">
                             <code>curl -H "Authorization: Bearer &lt;api_key&gt;" \<br>    http://127.0.0.1:8765/profiles</code>
                         </div>
                     </div>
+                    
+                    <div class="code-block-container code-example" data-lang="python">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>import sidebar_client
+<span class="code-comment"># Assumes sidebar_client.py is in your path</span>
+
+<span class="code-comment"># API key is loaded automatically</span>
+profiles = sidebar_client.list_profiles()
+print(profiles)</code>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="tutorial-card fade-in">
                     <div class="tutorial-number">2</div>
                     <h3>List Buttons in a Profile</h3>
-                    <div class="code-block-container">
+
+                    <div class="code-block-container code-example" data-lang="curl">
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         <div class="code-block">
                             <code>curl -H "Authorization: Bearer &lt;api_key&gt;" \<br>    http://127.0.0.1:8765/profiles/default/buttons</code>
                         </div>
                     </div>
+
+                    <div class="code-block-container code-example" data-lang="python">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>import sidebar_client
+
+<span class="code-comment"># Get buttons for 'default' profile</span>
+buttons = sidebar_client.list_buttons("default")
+print(buttons)</code>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="tutorial-card fade-in">
                     <div class="tutorial-number">3</div>
                     <h3>Execute a Button by ID</h3>
-                    <div class="code-block-container">
+                    
+                    <div class="code-block-container code-example" data-lang="curl">
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         <div class="code-block">
                             <code>curl -X POST \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    http://127.0.0.1:8765/profiles/default/run/0</code>
                         </div>
                     </div>
+
+                    <div class="code-block-container code-example" data-lang="python">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>import sidebar_client
+
+<span class="code-comment"># Run button 0 in 'default' profile</span>
+response = sidebar_client.run_button(
+    "default", 
+    0
+)
+print(response)</code>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="tutorial-card fade-in">
                     <div class="tutorial-number">4</div>
                     <h3>Execute a Button by Name</h3>
-                    <div class="code-block-container">
+                    
+                    <div class="code-block-container code-example" data-lang="curl">
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         <div class="code-block">
                             <code>curl -X POST \<br>    -H "Content-Type: application/json" \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    -d '{"profile": "default", "label": "Open Chrome"}' \<br>    http://127.0.0.1:8765/run</code>
                         </div>
                     </div>
+
+                    <div class="code-block-container code-example" data-lang="python">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>import sidebar_client
+
+response = sidebar_client.run_by_label(
+    "default", 
+    "Open Chrome"
+)
+print(response)</code>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="tutorial-card fade-in">
                     <div class="tutorial-number">5</div>
                     <h3>Run Temporary Actions</h3>
-                    <div class="code-block-container">
+                    
+                    <div class="code-block-container code-example" data-lang="curl">
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         <div class="code-block">
                             <code>curl -X POST \<br>    -H "Content-Type: application/json" \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    -d '{"actions": [{"type": "move_rel", "value": "-100,0"}]}' \<br>    http://127.0.0.1:8765/run_temp</code>
                         </div>
                     </div>
+
+                    <div class="code-block-container code-example" data-lang="python">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>import sidebar_client
+
+<span class="code-comment"># Define a list of actions</span>
+actions_list = [
+    {"type": "move_rel", "value": "-100,0"}
+]
+
+response = sidebar_client.run_temp_action(actions_list)
+print(response)</code>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="tutorial-card fade-in">
                     <div class="tutorial-number">6</div>
                     <h3>Create Hidden Button</h3>
-                    <div class="code-block-container">
+                    
+                    <div class="code-block-container code-example" data-lang="curl">
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         <div class="code-block">
                             <code>curl -X POST \<br>    -H "Content-Type: application/json" \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    -d '{"label": "MoveLeft", "actions": [{"type": "move_rel", "value": "-200,0"}]}' \<br>    http://127.0.0.1:8765/hidden_buttons</code>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block-container code-example" data-lang="python">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>import sidebar_client
+
+actions_list = [
+    {"type": "move_rel", "value": "-200,0"}
+]
+
+<span class="code-comment"># Create a non-temporary hidden button</span>
+response = sidebar_client.create_hidden_button(
+    "MoveLeft", 
+    actions_list, 
+    temporary=False
+)
+print(response)</code>
                         </div>
                     </div>
                 </div>
@@ -1035,7 +1168,6 @@
         </div>
     </section>
 
-    <!-- Integration Section -->
     <section id="integration" class="section installation">
         <div class="container">
             <div class="section-title">
@@ -1075,7 +1207,6 @@
         </div>
     </section>
 
-    <!-- Version History Section -->
     <section id="versions" class="section">
         <div class="container">
             <div class="section-title">
@@ -1195,7 +1326,6 @@
         </div>
     </section>
 
-    <!-- Terms of Service Section -->
     <section id="tos" class="section installation">
         <div class="container">
             <div class="section-title">
@@ -1242,7 +1372,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1314,7 +1443,57 @@
                     }
                 });
             });
-        });
+
+            // --- NEW: Tutorial language switcher ---
+            document.querySelectorAll('.switcher-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetLang = this.dataset.lang;
+                    
+                    // Don't do anything if already active
+                    if (this.classList.contains('active')) {
+                        return;
+                    }
+                    
+                    // Update switcher buttons
+                    document.querySelectorAll('.switcher-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const langToShow = targetLang;
+                    const langToHide = (targetLang === 'curl') ? 'python' : 'curl';
+
+                    const tutorialCards = document.querySelectorAll('.tutorial-card');
+                    
+                    tutorialCards.forEach(card => {
+                        const exampleToHide = card.querySelector(`.code-example[data-lang="${langToHide}"]`);
+                        const exampleToShow = card.querySelector(`.code-example[data-lang="${langToShow}"]`);
+
+                        if (exampleToHide) {
+                            // 1. Start fading out the old example
+                            exampleToHide.style.opacity = '0';
+                            
+                            // 2. After fade-out, hide it
+                            setTimeout(() => {
+                                exampleToHide.style.display = 'none';
+
+                                if (exampleToShow) {
+                                    // 3. Show new example (still transparent)
+                                    exampleToShow.style.display = 'block';
+                                    
+                                    // 4. Trigger fade-in
+                                    setTimeout(() => {
+                                        exampleToShow.style.opacity = '1';
+                                    }, 20); // small delay to ensure display:block renders
+                                }
+                            }, 300); // Must match CSS transition duration
+                        }
+                    });
+                });
+            });
+            // --- End new script ---
+
+        }); // End DOMContentLoaded
 
         // Copy code functionality
         function copyCode(button) {
