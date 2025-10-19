@@ -105,6 +105,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-shrink: 0;
         }
 
         .logo img {
@@ -120,12 +121,23 @@
             background: linear-gradient(to right, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 18px;
+            flex-wrap: nowrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
@@ -135,6 +147,8 @@
             transition: all 0.3s ease;
             position: relative;
             padding: 5px 0;
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         nav a::after {
@@ -159,7 +173,7 @@
         .cta-button {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: var(--darker);
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
@@ -168,6 +182,9 @@
             box-shadow: var(--glow);
             border: none;
             cursor: pointer;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .cta-button:hover {
@@ -670,6 +687,43 @@
         }
 
         /* Responsive */
+        @media (max-width: 1100px) {
+            nav ul {
+                gap: 12px;
+            }
+            
+            nav a {
+                font-size: 0.85rem;
+            }
+            
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .logo {
+                order: 1;
+            }
+            
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .cta-button {
+                order: 2;
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -685,7 +739,9 @@
             }
             
             nav ul {
-                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
             }
             
             .hero {
@@ -722,18 +778,18 @@
                 </div>
                 <div class="logo-text">CODEM</div>
             </div>
-                <nav>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#downloads">Downloads</a></li>
-                        <li><a href="#installation">Installation</a></li>
-                        <li><a href="#api">API</a></li>
-                        <li><a href="#tutorials">Tutorials</a></li>
-                        <li><a href="#integration">Integration</a></li>
-                        <li><a href="#versions">Version History</a></li>
-                        <li><a href="#tos">Terms of Service</a></li>
-                    </ul>
-                </nav>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#downloads">Downloads</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#api">API</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#integration">Integration</a></li>
+                    <li><a href="#versions">Version History</a></li>
+                    <li><a href="#tos">Terms of Service</a></li>
+                </ul>
+            </nav>
             <a href="#downloads" class="cta-button">Download Now</a>
         </div>
     </header>
