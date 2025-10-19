@@ -567,6 +567,38 @@
             opacity: 1;
         }
 
+        /* TOS Section */
+        .tos-content {
+            background: rgba(10, 15, 30, 0.6);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 30px;
+            border: 1px solid rgba(0, 207, 255, 0.2);
+        }
+
+        .tos-section {
+            margin-bottom: 30px;
+        }
+
+        .tos-section h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .tos-section p, .tos-section ul {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .tos-section ul {
+            margin-left: 20px;
+        }
+
+        .tos-section li {
+            margin-bottom: 10px;
+        }
+
         /* Animations */
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -659,6 +691,7 @@
                         <li><a href="#tutorials">Tutorials</a></li>
                         <li><a href="#integration">Integration</a></li>
                         <li><a href="#versions">Version History</a></li>
+                        <li><a href="#tos">Terms of Service</a></li>
                     </ul>
                 </nav>
             <a href="#downloads" class="cta-button">Download Now</a>
@@ -680,7 +713,7 @@
             <h1>CODEM SIDEBAR</h1>
             <p>A lightweight, customizable productivity sidebar for Windows, Linux, and macOS — built to launch tools, automate tasks, and integrate with other apps via a local secure API.</p>
             <div class="hero-buttons">
-                <a href="#downloads" class="cta-button">Download Latest (V6)</a>
+                <a href="#downloads" class="cta-button">Download Latest (V7)</a>
                 <a href="#features" class="cta-button secondary-button">Learn More</a>
             </div>
         </div>
@@ -690,7 +723,7 @@
     <section id="features" class="section">
         <div class="container">
             <div class="section-title">
-                <h2> D Features</h2>
+                <h2>🚀 Features</h2>
                 <p>Powerful tools to boost your productivity</p>
             </div>
             <div class="features-grid">
@@ -736,13 +769,26 @@
                     <h3>External Integration</h3>
                     <p>Other apps can trigger sidebar actions with the included sidebar_client.py.</p>
                 </div>
-                <!-- Add this right after the existing 6 feature cards in the Features section -->
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-arrows-alt"></i>
                     </div>
                     <h3>Relative Mouse Controls</h3>
                     <p>Move and click relative to current position with adjustable speed for precise automation.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3>Hidden Buttons</h3>
+                    <p>Create hidden buttons for developer mode and temporary actions via API.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>API Server Control</h3>
+                    <p>Toggle API server on/off with restart capability for enhanced security.</p>
                 </div>
             </div>
         </div>
@@ -759,8 +805,13 @@
                 <div class="downloads-grid">
                     <div class="download-card latest">
                         <div class="download-badge">Latest Version</div>
+                        <h3>Version 7</h3>
+                        <p>Hidden buttons, API server control, TOS installer, and enhanced security</p>
+                        <a href="https://www.mediafire.com/file/j6sdscafhjdmvxr/CodemSidebar_InstallerV7.exe/file" class="cta-button" target="_blank">Download V7</a>
+                    </div>
+                    <div class="download-card">
                         <h3>Version 6</h3>
-                        <p>Latest release with Enhanced mouse controls with relative movement and click-here actions</p>
+                        <p>Enhanced mouse controls with relative movement and click-here actions</p>
                         <a href="https://www.mediafire.com/file/a0fweu3uv90cmj6/CodemSidebar_InstallerV6.exe/file" class="cta-button" target="_blank">Download V6</a>
                     </div>
                     <div class="download-card">
@@ -816,13 +867,7 @@
                     </div>
                 </div>
                 
-                <p>Download the sidebar client for API integration:</p>
-                <div class="code-block-container">
-                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    <div class="code-block">
-                        <code># sidebar_client.py is available for API integration<br># Download it from the project repository</code>
-                    </div>
-                </div>
+                <p>The sidebar client for API integration is now included in the main installation. You can find it in the installation directory.</p>
 
                 <h3>🎯 First Run</h3>
                 <p>When you first run the sidebar:</p>
@@ -897,6 +942,21 @@
                             <td>POST</td>
                             <td>Trigger button by label name</td>
                         </tr>
+                        <tr>
+                            <td><code>/run_temp</code></td>
+                            <td>POST</td>
+                            <td>Run temporary action sequence directly</td>
+                        </tr>
+                        <tr>
+                            <td><code>/hidden_buttons</code></td>
+                            <td>GET</td>
+                            <td>List hidden buttons (Developer Mode)</td>
+                        </tr>
+                        <tr>
+                            <td><code>/hidden_buttons</code></td>
+                            <td>POST</td>
+                            <td>Create hidden or temporary button</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -951,6 +1011,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="tutorial-card fade-in">
+                    <div class="tutorial-number">5</div>
+                    <h3>Run Temporary Actions</h3>
+                    <div class="code-block-container">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>curl -X POST \<br>    -H "Content-Type: application/json" \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    -d '{"actions": [{"type": "move_rel", "value": "-100,0"}]}' \<br>    http://127.0.0.1:8765/run_temp</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-card fade-in">
+                    <div class="tutorial-number">6</div>
+                    <h3>Create Hidden Button</h3>
+                    <div class="code-block-container">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <div class="code-block">
+                            <code>curl -X POST \<br>    -H "Content-Type: application/json" \<br>    -H "Authorization: Bearer &lt;api_key&gt;" \<br>    -d '{"label": "MoveLeft", "actions": [{"type": "move_rel", "value": "-200,0"}]}' \<br>    http://127.0.0.1:8765/hidden_buttons</code>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -994,6 +1074,7 @@
             </div>
         </div>
     </section>
+
     <!-- Version History Section -->
     <section id="versions" class="section">
         <div class="container">
@@ -1085,6 +1166,20 @@
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3>V7 - Hidden Buttons & Security</h3>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Hidden buttons for developer mode</li>
+                        <li>Temporary action sequences via API</li>
+                        <li>API server control (requires restart)</li>
+                        <li>Enhanced security options</li>
+                        <li>Terms of Service in installer</li>
+                        <li>Improved API documentation</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
                         <i class="fas fa-crystal-ball"></i>
                     </div>
                     <h3>Future Roadmap</h3>
@@ -1095,6 +1190,53 @@
                         <li>Advanced automation</li>
                         <li>More integrations</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms of Service Section -->
+    <section id="tos" class="section installation">
+        <div class="container">
+            <div class="section-title">
+                <h2>📜 Terms of Service</h2>
+                <p>Please read these terms carefully before using Codem Sidebar</p>
+            </div>
+            <div class="tos-content fade-in">
+                <div class="tos-section">
+                    <h3>1. Ownership</h3>
+                    <p>Codem Sidebar and all related components are proprietary software owned by Codem Tools.</p>
+                </div>
+                
+                <div class="tos-section">
+                    <h3>2. Distribution</h3>
+                    <p>This software and its source code are not to be publicly shared, uploaded, or redistributed without explicit permission from Codem Tools.</p>
+                </div>
+                
+                <div class="tos-section">
+                    <h3>3. Executables</h3>
+                    <p>All distributed components are provided as compiled executables (.exe). Source code is not open for modification or redistribution.</p>
+                </div>
+                
+                <div class="tos-section">
+                    <h3>4. API Access</h3>
+                    <p>The Sidebar API is only accessible if explicitly enabled by the user in Developer Mode.</p>
+                </div>
+                
+                <div class="tos-section">
+                    <h3>5. Liability</h3>
+                    <p>Codem Tools is not responsible for any data loss, damage, or misuse caused by use or modification of this software.</p>
+                </div>
+                
+                <div class="tos-section">
+                    <h3>6. Agreement</h3>
+                    <p>By checking "I Agree" below, you acknowledge and accept all terms listed above.</p>
+                </div>
+                
+                <div class="tos-section">
+                    <p style="font-style: italic; color: #b0e0ff; border-left: 3px solid var(--primary); padding-left: 15px;">
+                        These terms are presented during the installation process and must be accepted to proceed with the installation of Codem Sidebar.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1117,6 +1259,7 @@
                         <li><a href="#api">API Documentation</a></li>
                         <li><a href="#tutorials">Tutorials</a></li>
                         <li><a href="#versions">Version History</a></li>
+                        <li><a href="#tos">Terms of Service</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
