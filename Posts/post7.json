@@ -1,0 +1,9 @@
+{
+  "id": 7,
+  "title": "Introducing the Codem Central Hub",
+  "excerpt": "The Codem Central Hub is a new project that uses the Codem Sidebar API and a custom Gemini web API for automation, enabling long-distance command execution via synced Google Drive folders.",
+  "category": "New Projects",
+  "date": "2025-10-22",
+  "author": "Codem",
+  "content": "I have been working on a really cool project called the Codem Central Hub. It makes use of the Codem Sidebar API (You can check that out here https://codemsportfolio.netlify.app/sidebar) and a custom Gemini web API using a chromium tab for easier automation without having to rely on the actual API. The Central Hub in itself is a python program that detects when new files are added to a synced folder in a google drive on any given Proccessor (Any PC or Server running the Hub). Commands are sent by adding json files to a foler that specify SenderID, ProccessorID, and the command Number. The commands are predifened and use the SidebarAPI making things like Teamviewer startup and free databases possible all over long distance internet connection by many users."
+}
