@@ -1,9 +1,0 @@
-{
-  "id": 10,
-  "title": "Codem Central Hub Update 1.1: Chromium Tab Gemini API Edits",
-  "excerpt": "Working on updates to the central hub, including edits to the Chromium Tab Gemini API to create a C4 (Command 4) for pushing JSON files to the blog.",
-  "category": "project-updates",
-  "date": "2025-10-22",
-  "author": "Codem",
-  "content": "<h2>Codem Central Hub Update 1.1: Gemini API Integration ### Making Edits -- I have been working hard and making plenty of edits to the Chromium Tab Gemini API, this is all for the update to the central hub to make a C4 (Command 4) That can be used to push JSON files to the blog page of my portfolio. The is Codem Central Hub Update 1.1 and I cant wait for it to be ready for me to use properly. ### The New Workflow -- The flow is essentially, Promt text file to Custom Gemini web API and then push the generated JSON file to my website through git push. With the new gemini API, it is now possible to have a specified sending message commnad to account for longer texts. -- Check out the latest project on my <a href='https://example.com/portfolio' target='_blank'>portfolio</a>.</h2>"
-}
