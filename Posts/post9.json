@@ -1,0 +1,9 @@
+{
+  "id": 9,
+  "title": "Simon Sight: A Webcam-Controlled Game",
+  "excerpt": "An OpenCV project exploring pixel ratios to create webcam-based buttons for a 'Simon Says' style memory game.",
+  "category": "new-projects",
+  "date": "2025-10-23",
+  "author": "Codem",
+  "content": "<p><h2>Project: Simon Sight</h2>-- My latest venture into OpenCV led to an interesting exploration of computer vision: using the ratio of dark to light pixels to create interactive controls. I used this concept to build a program that accurately detects a webcam's total camera coverage.-- This detection capability was the foundation for creating 'camera buttons.' The presence or absence of a hand or object changing the light/dark ratio acts as an input.-- I combined this with a separate utility program I developed for initiating and stopping camera streams. This combination granted me control over both the camera's LED indicator and the visual coverage input.-- The result is Simon Sight, a quick implementation of the classic 'Simon Says' memory game. Instead of physical buttons, players interact using their webcams. The game uses sounds from a speaker and the webcams themselves serve as both the buttons and the lights for the sequence.<h3>Source Code and Portfolio</h3>-- The code for Simon Sight is available on GitHub and is open for modification and use!-- You can <a href='https://codemsportfolio.netlify.app' target='_blank'>Check out my portfolio</a> if you want to try out the live project or see more of my work.</p>"
+}
