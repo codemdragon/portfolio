@@ -1,9 +1,0 @@
-{
-  "id": 11,
-  "title": "Simon Sight: A Computer Vision Game",
-  "excerpt": "Explore the Simon Sight project, a classic Simon game implemented with computer vision, using webcams for buttons and lights based on dark/light pixel ratios.",
-  "category": "new-projects",
-  "date": "2025-10-23",
-  "author": "Codem",
-  "content": "<h2>Introducing Simon Sight: The Vision-Controlled Game--I decided to dive into OpenCV to explore the concept of ratios of dark to light pixels. This led me to create a program that detects total camera coverage, which I then used to develop \"camera buttons.\"--Alongside a program I made to initiate and stop cameras, I essentially gained control over both the LED on the camera and the coverage control.--### Implementation--Using these building blocks, I put together a quick Simon game program, which I've named Simon Sight. It uses sounds from a speaker and webcams act as both the buttons and the lights for the game.--### Try It Out!--You can check out the project on the portfolio if you want to try it out. The link to the <a href='https://github.com/codem' target='_blank'>GitHub repo</a> is open for modification and use!I'm excited to see what you build with it!</h2>"
-}
