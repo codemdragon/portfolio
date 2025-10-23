@@ -1,9 +1,0 @@
-{
-  "id": 9,
-  "title": "Simon Sight: Camera Coverage Control Game",
-  "excerpt": "Explored OpenCV to detect dark/light pixel ratios for camera coverage control, resulting in 'camera buttons' and a quick Simon game.",
-  "category": "new-projects",
-  "date": "2025-10-23",
-  "author": "Codem",
-  "content": "<p><h2>Project Overview: Simon Sight</h2></p>\n<p>Exploring OpenCV, I delved into the concept of ratios of dark to light pixels. Using this, I created a program that detects total camera coverage.</p>\n<p>This allowed me to create, essentially, camera buttons. I also made a separate program to initiate and stop cameras, giving me control of both the LED on the camera and its coverage control.</p>\n<p><h3>Simon Sight Game Implementation</h3></p>\n<p>Using these controls, I put together a quick Simon game program complete with sounds from a speaker and webcams for both buttons and lights. I've named this project the Simon Sight.</p>\n<p>You can check it out on the portfolio if you want to try it out, the <a href='https://github.com/codem-example/simon-sight' target='_blank'>GitHub repo</a> is open for modification and use!</p>"
-}
