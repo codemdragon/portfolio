@@ -1,9 +1,0 @@
-{
-  "id": 9,
-  "title": "Introducing Simon Sight: A Webcam-Controlled Simon Game",
-  "excerpt": "Explored computer vision ratios to create 'camera buttons,' leading to a fun, interactive Simon game called Simon Sight.",
-  "category": "new-projects",
-  "date": "2025-10-23",
-  "author": "Codem",
-  "content": "<h2>Project Overview: Simon Sight -- I recently delved into OpenCV and became interested in the concept of analyzing the ratio of dark to light pixels within a camera feed. This exploration led to the creation of a program that can accurately detect the total camera coverage or field of view. -- Using this coverage detection, I was able to essentially create 'camera buttons.' ### Controlling the Camera -- Alongside this main program, I developed a utility to initiate and stop camera feeds. Combining all these elements, I gained control over both the LED indicator on the webcam and the camera's coverage control, effectively turning the camera itself into an interactive input device. ### The Simon Sight Game -- I quickly put these components together to build a fun, interactive version of the classic Simon game. This implementation uses a speaker for sounds and the webcams themselves as the buttons and lights for the game. I've named this creation Simon Sight. -- You can check it out on the portfolio if you want to try it out, the link to the GitHub repo is open for modification and use!</h2>"
-}
