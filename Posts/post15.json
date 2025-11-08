@@ -1,0 +1,9 @@
+{
+  "id": 15,
+  "title": "Prompt Optimization - OpenAI",
+  "excerpt": "Tips and resources for crafting better prompts for AI models like ChatGPT using official OpenAI guidance.",
+  "category": "fun-facts",
+  "date": "2025-11-08",
+  "author": "Codem",
+  "content": "<p><h2>Prompt Optimization - OpenAI</h2><p>Have you ever been using chatgpt and figured your promt wasn't up to standard. Thats cause it probably isn't. Luckily open ai got you covered for that.</p><h3>Official Guidance Makes a Difference</h3><p>They've released full documentation on how your supposed to talk to an ai model. It significantly changes how ai actually replies and the quality of your answers actually increase. Personally its made a huge difference for me.</p><h3>Resources for Better Prompts</h3><p>If you find documentation annoying to read, I've dropped a video link that explains how to do it really well. Go check it out.</p><p>Video for Further guidance: <a href='https://youtu.be/iRTK-jsfleg?si=2lAC-yYXWjd-5-3W' target='_blank'>https://youtu.be/iRTK-jsfleg?si=2lAC-yYXWjd-5-3W</a></p><p>Prompt engineering guide: <a href='https://platform.openai.com/docs/guides/prompt-engineering' target='_blank'>https://platform.openai.com/docs/guides/prompt-engineering</a></p><p>Prompt optimizer: <a href='https://platform.openai.com/chat/edit?models=gpt-5&optimize=true' target='_blank'>https://platform.openai.com/chat/edit?models=gpt-5&optimize=true</a></p><p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my posts.</p></p>"
+}
