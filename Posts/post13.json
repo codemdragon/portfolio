@@ -1,0 +1,9 @@
+{
+  "id": 13,
+  "title": "The Codem Echo",
+  "excerpt": "Deciding on a local AI for the audio project, testing Phi-3 and Gemma:2b on Ollama, and optimizing conversation flow with fast transcription and streaming text-to-speech.",
+  "category": "project-updates",
+  "date": "2025-11-08",
+  "author": "Codem",
+  "content": "<h2>Project: The Codem Echo</h2>\n<p>After a long debate, I decided to switch over to local AI. I'm currently testing between phi3 and gemma:2b on ollama for the audio project.</p>\n<h3>Technical Implementation</h3>\n<p>I'm using openai faster whisper in order to have fast and good quality speech-to-text.</p>\n<p>I then send the produced text over to the chosen AI which will stream output for every 4 words to the text-to-speech engine using Microsoft local edge text to speech.</p>\n<p>Doing this allows me to use async and proccess the next speech output and store it while one is taking place, increasing the overall efficiency of the conversation.</p>\n<p>Since I kept it using ollama, I can switch models easily, so I'm going to keep testing more models until I find the perfect match between speed and quality.</p>\n<p>The free Gemini API I made using chromium will still remain useful when running on lower end devices that find it troublesome to run local AI, like my laptop, which I'll use that instead for testing purposes.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see my other projects.</p>"
+}
