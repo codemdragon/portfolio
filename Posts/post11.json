@@ -1,0 +1,9 @@
+{
+  "id": 11,
+  "title": "Exploring Mobile Development",
+  "excerpt": "Starting to look at mobile development alongside website development, comparing app development to mobile website interfaces, and considering using frameworks like Flutter.",
+  "category": "learning-curves",
+  "date": "2025-11-08",
+  "author": "Codem",
+  "content": "<h2>Venturing into Mobile Development</h2>\n<p>Starting to look at mobile development alongside website development.</p>\n<p>Development on mobile apps can look extremely different compared to the mobile interface of a website. This is very important to take into account when designing applications rather than websites.</p>\n<h3>Current Focus: Flutter</h3>\n<p>I now am attempting to get started with something like flutter in order to produce development for mobiles as well rather than just mobile interface.</p>\n<p>I might be attempting to make one further down the line commercially rather than on a personal project basis as its an important piece of the package that comes along with software development.</p>\n<p>I'll start of with weighing the pros and cons between manually coding or template wise development via other tools. You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see my web projects so far.</p>"
+}
