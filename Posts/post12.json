@@ -1,0 +1,9 @@
+{
+  "id": 12,
+  "title": "The Codem Echo",
+  "excerpt": "Created an infinite free voice API for a hyper-realistic Text-to-Speech model and integrated it into a custom local AI assistant using Ollama and Speech-to-Text.",
+  "category": "new-projects",
+  "date": "2025-11-08",
+  "author": "Codem",
+  "content": "<p><h2>Project Overview: The Codem Echo</h2></p>\n<p>A new tool has been released for hyper realistic voices through text to speech. It is quite an interesting tool to use and has a full api via hugging face. Though its still limited due to tokenization and daily limits.</p>\n<p><h2>Technical Implementation</h2></p>\n<h3>Bypassing API Limits</h3>\n<p>Using selenium and opening the web tryout version, I created an infinite free api for it, allowing me to get a little slower but just as realistic voices. And by navigating a bit, I can manipulate the chosen voice as well.</p>\n<h3>Connecting the Voice Assistant</h3>\n<p>With the help of this new tool, I connected it to a custom modeled local ollama with Gemma3:1B for generation and made a full voice for my ai assistant. Also with the help of the speech to text python module, I had it listen for the word echo at all times, essentially making a free version of a voice assistant with infinite uses.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more projects.</p>"
+}
