@@ -1,0 +1,9 @@
+{
+  "id": 17,
+  "title": "Automated Google Drive Remounting Failsafe",
+  "excerpt": "Implemented a Python-based failsafe system in the Central Hub to monitor and automatically remount Google Drive, queueing commands until availability is restored.",
+  "category": "project-updates",
+  "date": "2025-11-11",
+  "author": "Codem",
+  "content": "<p><h2>Project Update: Automated Google Drive Remounting</h2><p>I noticed that every now and again my PC would dismount the Google Drive, often due to sleeping processes or network instability. This was a critical issue, as a remote system cannot afford unexpected failures.</p><h3>The Solution Design</h3><p>To address this, I implemented a robust failsafe within the Codem Central Hub. The core solution utilizes the existing Google Drive remounting launch.bat and executable in program files.</p><h3>Python Failsafe Logic</h3><p>The main logic resides in <b>main.py</b>, which actively checks the availability of the G Drive. If the drive is unavailable, the system does not fail; instead, all queued commands are carefully recorded and stored.</p><p>Remounting is handled by a specialized failsafe script, <i>drive_mount.py</i>, which forces the remount. Once successful, the recorded command queue is safely processed.</p><p>This system ensures that the Central Hub maintains operational reliability even when facing intermittent network or system disruptions. You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more projects like this.</p></p>"
+}
