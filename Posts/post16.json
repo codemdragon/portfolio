@@ -1,0 +1,9 @@
+{
+  "id": 16,
+  "title": "Ai File organizer",
+  "excerpt": "Building a desktop file organizer using Shell commands and the Gemini API.",
+  "category": "new-projects",
+  "date": "2025-11-11",
+  "author": "Codem",
+  "content": "<p><h2>Ai File organizer</h2><p>With the help of Shell commands and the chromium free gemini api I made for Codem Echo. I am making a desktop organizer.</p><h3>Current Implementation</h3><p>It takes 10 file paths at a time and uploads them to the gemini web. With some initial context via a prepromt I have managed to create the basic skeleton for the organizer.</p><p>It takes folder names as an input and has the ai sort them via name context.</p><h3>Future Plans</h3><p>Later I'll have the ai create folder names as well based on file name context.</p><p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more projects.</p></p>"
+}
