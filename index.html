@@ -36,15 +36,88 @@
       padding: 10px 0;
     }
 
-    nav a {
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+    }
+
+    .desktop-nav a {
       color: #ccc;
       margin-left: 15px;
       text-decoration: none;
       font-size: 14px;
     }
 
-    nav a:hover {
+    .desktop-nav a:hover {
       color: white;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background-color: #ccc;
+      margin-bottom: 4px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #2a2f3a;
+      width: 200px;
+      border-radius: 8px;
+      padding: 10px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      color: #ccc;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 14px;
+      border-bottom: 1px solid #333;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover {
+      color: white;
+      background-color: #3a3f4a;
     }
 
     .hero {
@@ -330,6 +403,7 @@
       max-width: 80%;
     }
 
+    /* Media Queries */
     @media (max-width: 768px) {
       .projects-grid {
         grid-template-columns: 1fr;
@@ -345,12 +419,31 @@
         height: 180px;
       }
 
-      nav {
+      .desktop-nav {
         display: none;
+      }
+      
+      .mobile-nav {
+        display: block;
+      }
+      
+      .hamburger {
+        display: flex;
       }
       
       .modal-content {
         max-width: 95%;
+      }
+    }
+
+    /* Landscape orientation on mobile */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .desktop-nav {
+        display: flex;
+      }
+      
+      .mobile-nav {
+        display: none;
       }
     }
   </style>
@@ -359,13 +452,31 @@
   <div class="container" id="home">
     <header>
       <div><strong>Codem</strong></div>
-      <nav>
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="blog.html">Blog</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8o3cM1baH40anmnJnV59sqxFKGopheZKdpmvo6ffHB0XTSQ/viewform?usp=sharing&ouid=107593917456147368526" target="_blank">Contact</a>
       </nav>
+      
+      <!-- Mobile Navigation -->
+      <div class="mobile-nav">
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#home" onclick="closeMobileMenu()">Home</a>
+          <a href="#about" onclick="closeMobileMenu()">About</a>
+          <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8o3cM1baH40anmnJnV59sqxFKGopheZKdpmvo6ffHB0XTSQ/viewform?usp=sharing&ouid=107593917456147368526" target="_blank">Contact</a>
+        </div>
+      </div>
     </header>
 
     <section class="hero">
@@ -593,6 +704,32 @@
   </div>
 
   <script>
+    // Mobile menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    function toggleMobileMenu() {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    }
+    
+    function closeMobileMenu() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    }
+    
+    hamburger.addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnHamburger = hamburger.contains(event.target);
+      
+      if (!isClickInsideMenu && !isClickOnHamburger && mobileMenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+    
     // Modal functionality
     function openModal(imageSrc, captionText) {
       const modal = document.getElementById('imageModal');
