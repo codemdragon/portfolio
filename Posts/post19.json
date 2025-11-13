@@ -1,0 +1,9 @@
+{
+  "id": 19,
+  "title": "Codem Central Hub Debugging and Crash Fixing",
+  "excerpt": "Implemented a relauncher for the central hub's main.py to handle network crashes and currently debating the best approach for ensuring the Sidebar UI component is running before executing UI-based commands.",
+  "category": "project-updates",
+  "date": "2025-11-13",
+  "author": "Codem",
+  "content": "<h2>Project Updates: Central Hub Stability</h2>\n<p>When in a remote location I realised that my main.py in the central hub still occasionally goes down due to network issues. I therefore implemented a relauncher that uses the launch.bat file in order to restart it.</p>\n<p>I thought this would be all of my troubles though I face one more issue which I am attempting to solve.</p>\n<h3>Solving the Sidebar Dependency</h3>\n<p>As the Sidebar may not be on all the time and UI based commands require it to be running in the background for the API, I have 2 options to consider.</p>\n<p>Option 1: Just keep the Sidebar running all the time. If I choose this option I'll be making a similar checker to the remounter for the google drive, simply checking if the task exists at a few second interval and storing the current state of all commands and features and reboot it.</p>\n<p>Option 2: (Which I think is probably more effective) I check for the process before any ui based command. I've already tagged all ui based commands for the command queue so this won't be much of an issue.</p>\n<p>Ill check if the task exists by searching for the word Sidebar and if it doesn't exist I'll start it and wait 10 seconds for the server, and then continue with the chosen command.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more projects and updates.</p>"
+}
