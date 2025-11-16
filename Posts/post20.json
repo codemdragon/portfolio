@@ -1,0 +1,9 @@
+{
+  "id": 20,
+  "title": "Introducing 'Ava' - My AI Assistant",
+  "excerpt": "The latest update on my AI assistant, now named Ava, featuring persistent memory and long-term memory integration via the Gemini API.",
+  "category": "project-updates",
+  "date": "2025-11-16",
+  "author": "Codem",
+  "content": "<h2>Codem Echo: Assistant Renamed to Ava</h2>\n<p>I've named my assistant Ava now. This is a significant update, focusing on improving the overall conversational experience.</p>\n<h3>Persistent and Long-Term Memory</h3>\n<p>The assistant now features persistent memory, which means it retains context across sessions.</p>\n<p>I've integrated my Gemini Chromium API to facilitate this.</p>\n<p>The core functionality involves Ava summarising the ongoing conversation and outputting a one-line memory.</p>\n<p>This one-line summary is then saved as a long-term memory for Ava.</p>\n<p>Ava will retrieve and utilise this long-term memory every time a user prompt includes the statements 'remember when' or 'check'.</p>\n<p>I'm excited about the improved utility this persistent memory brings! You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to follow further updates on Ava.</p>"
+}
