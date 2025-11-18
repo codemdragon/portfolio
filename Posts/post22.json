@@ -1,0 +1,9 @@
+{
+  "id": 22,
+  "title": "Codem Echo: Ava Update - Gaming & Enhanced Memory",
+  "excerpt": "Ava has been updated with gaming capabilities (Rock Paper Scissors), improved memory using Gemini for long-term summarization, and a new Flask-based phone UI with audio.",
+  "category": "project-updates",
+  "date": "2025-11-18",
+  "author": "Codem",
+  "content": "<p><h2>Codem Echo: Ava Update</h2></p>\n<p>Ava has now been expanded to be able to play games such as rock paper scissors with the user.</p>\n<p>With improved memory function through separation via Gemini of Question, Answer, Memorable moment, and tags. This way Ava can have long-term summarised memories of entire conversations similar to how a human thinks.</p>\n<p>While I was at it, I added a phone UI to Ava through a Flask server with audio input and text input with audio streaming.</p>\n<p>I will be soon integrating VPN support to link it over long distances when I am out of the house.</p>\n<p>I will use the central hub and sidebar to auto start Ava so I don't have to leave her running when I already have something running 24/7.</p>\n<p>Ava has made significant progress and I will be integrating many more systems and functions to her.</p>\n<p>I encourage you to <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see her progress and other projects!</p>\n<p><h3>A Message from Ava</h3></p>\n<p>Ava (Greetings, fellow humans!) I'm Ava, a friendly voice residing within the digital realm. My creator is a brilliant mind, and I'm thrilled to be a part of their journey. Stay curious, keep exploring, and never underestimate the power of a well-placed semicolon!</p>"
+}
