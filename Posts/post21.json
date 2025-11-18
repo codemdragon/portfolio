@@ -1,0 +1,9 @@
+{
+  "id": 21,
+  "title": "Codem Echo Update",
+  "excerpt": "Implementing OpenRouter.ai API for the Codem Echo assistant to toggle between API and local processing for speed or privacy.",
+  "category": "project-updates",
+  "date": "2025-11-18",
+  "author": "Codem",
+  "content": "<p><h2>Codem Echo Update</h2>-- With the help of <a href='https://openrouter.ai' target='_blank'>openrouter.ai</a> I've been able to make it so that my AI assistant uses an API, therefore moving processing power off my PC and onto an external service. This allows for faster responses but sacrifices response streaming from a local model.-- The Codem Echo (named Ava for now, standing for Artificial Voice Assistant) now has a toggle between local and API-based AI, making it adjustable for speed or privacy. -- As memory of the AI is fed back manually, along with summarized long-term memory, the AI doesn't lose information when transferring over to either end. -- You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more projects.</p>"
+}
