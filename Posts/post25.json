@@ -1,0 +1,9 @@
+{
+  "id": 25,
+  "title": "Echo: Ava's Short Term Memory",
+  "excerpt": "Adding context retention to Ava (Artificial Voice Assistant) and integrating WhatsApp messaging.",
+  "category": "project-updates",
+  "date": "2025-11-19",
+  "author": "Codem",
+  "content": "<h2>Project Echo: Restoring Ava's Memory</h2>\n<p>My most recent project, Ava (Artificial Voice Assistant), initially struggled to retain context across conversation turns. This meant she could not remember details from previous messages, making continuous conversations difficult.</p>\n<h3>Solution: Short-Term Context Retention</h3>\n<p>To fix this, I implemented an optional feature at the start of a new conversation to retain context from the most recent previous conversation log.</p>\n<p>This is achieved by reposting the prior messages into the system prompt for the new session, effectively giving Ava a 'short-term memory' of our last chat.</p>\n<p>The benefit is substantial: if I accidentally refresh the page or intentionally start a new conversation, I can now easily continue exactly from where I left off, ensuring a smoother user experience.</p>\n<h3>WhatsApp Integration</h3>\n<p>Furthermore, I integrated my existing WhatsApp module directly into Ava.</p>\n<p>This powerful addition allows Ava to message specific contacts on my behalf, based on a pre-approved list I've stored in an array, expanding her utility beyond simple conversation.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> for more details on Ava and other projects.</p>"
+}
