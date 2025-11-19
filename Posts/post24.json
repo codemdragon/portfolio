@@ -1,0 +1,9 @@
+{
+  "id": 24,
+  "title": "Exploring ngrok for Local Server Tunneling",
+  "excerpt": "Found an impressive tool, ngrok, for connecting local servers to the internet while developing my AI assistant, Echo Ava.",
+  "category": "discoveries",
+  "date": "2025-11-19",
+  "author": "Codem",
+  "content": "<h2>Discovering ngrok for Remote Access</h2>\n<p>When researching methods for connecting Echo Ava (My Artificial Voice Assistant) over to my phone, I came across a very interesting tool called ngrok.</p>\n<h3>What is ngrok?</h3>\n<p>It can be used to connect local running servers to the internet to be accessed easily from anywhere.</p>\n<p>I made a simple web interface and was easily able to stream audio and text through it by connecting it to a Flask server running on my machine.</p>\n<p>Although it does require a restart every now and then due to free account limits, it is a rather impressive and interesting tool to use for development and testing.</p>\n<p><a href='https://codemsportfolio.netlify.app' target='_blank'>Check out my portfolio</a> to see more of my discoveries and projects.</p>"
+}
