@@ -1,0 +1,9 @@
+{
+  "id": 23,
+  "title": "Codem Echo: Ava explore update",
+  "excerpt": "Ava (Artificial Voice Assistant) now supports remote access via ngrok and includes new interface features like selectable audio output for enhanced utility.",
+  "category": "project-updates",
+  "date": "2025-11-19",
+  "author": "Codem",
+  "content": "<p><h2>Remote Access and Utility Boost</h2><p>My <b>Ava (Artificial Voice Assistant)</b> project has received a significant update, enabling full remote access via an <b>ngrok server</b>. This means I can now interact with Ava completely remotely.</p><p>I also polished the interface and added a critical feature: the choice between outputting audio through the speakers or an earpiece, expanding Ava's utility for diverse use cases.</p></p>"
+}
