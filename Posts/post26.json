@@ -1,0 +1,9 @@
+{
+  "id": 26,
+  "title": "Remote Phone Terminal & Utility",
+  "excerpt": "Using Termux, Tailscale, and SSH to create a remote phone utility player from a PC with an API for notifications and TTS.",
+  "category": "new-projects",
+  "date": "2025-11-22",
+  "author": "Codem",
+  "content": "<h2>Project Overview</h2>\n<p>I've had Termux on my phone for quite a while, installed via F-Droid, along with some other tools. Oh boy, I didn't know what was coming my way.</p>\n<p>I began experiments with SSH, HTTP requests, and Tailscale and ended up with something I did not quite expect. I ended up making something of a remote phone player from my PC that auto boots with Termux-booter and Tailscale.</p>\n<h3>Technical Utility</h3>\n<p>Then I realised I could make a full notification system, audio player, and TTS (Text-to-Speech) player API for my computer to use. This makes my phone a potent, accessible utility from my desktop.</p>\n<p>It became quite the project and I might be connecting it to project Echo:Ava later for things like reminders, inter-device communication, and smart home control. It's a rather interesting discovery of a tool and a rather powerful one as well.</p>\n<p>I will continue to experiment and see where it gets me. You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my current projects.</p>"
+}
