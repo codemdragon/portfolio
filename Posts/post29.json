@@ -1,0 +1,9 @@
+{
+  "id": 29,
+  "title": "DNS Spoofing and Lightning Notes Transfer Experiment",
+  "excerpt": "An exploration into Android's Termux tools, culminating in an experimental, lightning-fast LAN note transfer system via DNS spoofing.",
+  "category": "discoveries",
+  "date": "2025-12-10",
+  "author": "Codem",
+  "content": "<h2>Termux Explorations: DNS Spoofing & Fast LAN Notes</h2>\n<p>Since building a push notifications Flask server on my phone using Termux, I became curious about the further capabilities of the Android terminal. Investigating various tools revealed some that were quite interesting and potentially dangerous if misused.</p>\n<h3>The Experiment</h3>\n<p>My goal was to create a lightning-fast note transfer system over my local area network (LAN) as an experiment to better understand DNS spoofing and Man-in-the-Middle (MITM) concepts.</p>\n<p>The core of the system involves using dnsmasq for DNS spoofing. This is configured to route ALL domain requests from the target device (my laptop) to a single, dedicated HTML page hosted on my phone.</p>\n<p>This HTML page acts as the interface for note transfer. Any text entered into the input field on my laptop is immediately logged into a text file on my phone.</p>\n<p>This results in a janky but remarkably effective method for transferring small notes and snippets of text between devices on the same LAN.</p>\n<h3>Next Steps</h3>\n<p>I plan to expand this experiment by looking into incorporating Text-to-Speech (TTS) capabilities and developing a more robust file transfer system.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my coding projects and experiments.</p>"
+}
