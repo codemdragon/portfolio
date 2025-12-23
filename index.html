@@ -453,7 +453,6 @@
     <header>
       <div><strong>Codem</strong></div>
       
-      <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -462,7 +461,6 @@
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8o3cM1baH40anmnJnV59sqxFKGopheZKdpmvo6ffHB0XTSQ/viewform?usp=sharing&ouid=107593917456147368526" target="_blank">Contact</a>
       </nav>
       
-      <!-- Mobile Navigation -->
       <div class="mobile-nav">
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -532,7 +530,6 @@
 
     <h4 class="projects-title" id="projects">Projects</h4>
     <div class="projects-grid">
-      <!-- NEW: Simon Sight Project -->
       <div class="project-card">
         <div class="project-image-container" onclick="openModal('Simon.png', 'Simon Sight')">
           <img src="Simon.png" alt="Simon Sight">
@@ -544,7 +541,6 @@
         </div>
       </div>
       
-      <!-- Codem Study Hub Project -->
       <div class="project-card">
         <div class="project-image-container" onclick="openModal('Codem_hub.png', 'Codem Study Hub')">
           <img src="Codem_hub.png" alt="Codem Study Hub">
@@ -556,7 +552,6 @@
         </div>
       </div>
       
-      <!-- Codem Web Capture Project -->
       <div class="project-card">
         <div class="project-image-container" onclick="openModal('web_capture.png', 'Codem Web Capture')">
           <img src="web_capture.png" alt="Codem Web Capture">
@@ -568,7 +563,6 @@
         </div>
       </div>
       
-      <!-- Codem Virtual Mousepad Project -->
       <div class="project-card">
         <div class="project-image-container" onclick="openModal('Mousepad.png', 'Codem Virtual Mousepad')">
           <img src="Mousepad.png" alt="Codem Virtual Mousepad">
@@ -582,20 +576,23 @@
         </div>
       </div>
       
-      <!-- Codem's Convertor Project with Version Dropdown -->
       <div class="project-card">
         <div class="project-image-container" onclick="openModal('Ytdwn.png', 'Codem\'s Convertor')">
           <img src="Ytdwn.png" alt="Codem's Convertor">
         </div>
         <h5>Codem's Convertor</h5>
-        <p>An epic tool to convert your Music and vids over from yt. With the addition of an in app music tester. You'll need ffmpeg - grab it straight from the link in settings or download from https://www.ffmpeg.org/download.html, V1=Music Player+Music Downloader+Video Downloader, V2=Loops,Logo Spins, V3=Playlists+Thumbnail+Otherfile conversions </p>
+        <p>An epic tool to convert your Music and vids over from yt. With the addition of an in app music tester. You'll need ffmpeg - grab it straight from the link in settings or download from https://www.ffmpeg.org/download.html. V1=Music Player/Downloader, V2=Loops/Spins, V3=Playlists/Thumbnails, V4=Local API, Port Management & App Manipulation.</p>
         
-        <!-- Version Dropdown - Updated to include V3 -->
+        <div class="project-links">
+             <a href="https://github.com/codemdragon/Codem-Convertor-MusicPlayer.git" target="_blank">GitHub Repository</a>
+        </div>
+        
         <div class="version-dropdown">
           <select id="convertorVersion">
             <option value="http://www.mediafire.com/file/0qtet8h4v39hlkn/Codem%27s_Convertor.zip">Version 1</option>
             <option value="https://www.mediafire.com/file/4fi59ty63anx2ub/Codem's+ConvertorV2.zip/file">Version 2</option>
             <option value="https://www.mediafire.com/file/ihcu7sghlz7omy8/CodemMusicPlayerV3.zip/file">Version 3</option>
+            <option value="https://www.mediafire.com/file/or9s49h4cc4gcjs/CodemMusicPlayerV4.zip/file">Version 4 (Latest)</option>
           </select>
           <button onclick="downloadSelectedConvertorVersion()">Download Selected Version</button>
         </div>
@@ -631,7 +628,6 @@
         </div>
       </div>
 
-      <!-- Emoji Search Project -->
       <div class="project-card">
           <div class="project-image-container" onclick="openModal('Emoji.png', 'Emoji Search')">
               <img src="Emoji.png" alt="Emoji Search">
@@ -643,15 +639,13 @@
           </div>
       </div>
       
-      <!-- Codem Sidebar Project with Version Dropdown -->
       <div class="project-card">
           <div class="project-image-container" onclick="openModal('Sidebar.png', 'Codem Sidebar')">
               <img src="Sidebar.png" alt="Codem Sidebar">
           </div>
           <h5>Codem Sidebar</h5>
           <p>A side assistant to keep on your screen that controls your cursor and performs tasks set by the user. V1 is the basic version, V2 Adds a searchbar and Profiles, V3 Adds Gradients stretch, V4 removes the ctrl and shift delay bug, V5 adds API support and external integration capabilities, V6 adds enhanced mouse controls (relative movement, click-here actions, adjustable speed).</p>
-          
-          <!-- Version Dropdown - Updated with V7 -->
+           
           <div class="version-dropdown">
               <select id="sidebarVersion">
                   <option value="https://www.mediafire.com/file/hszu3i4p6oz4i59/sidebar_app.exe/file">Version 1</option>
