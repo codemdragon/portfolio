@@ -1,0 +1,9 @@
+{
+  "id": 30,
+  "title": "Mastering Android Studio: Hybrid Web-App Templates",
+  "excerpt": "Exploring mobile development by bridging the gap between web applications and native Android functionality with persistent offline storage.",
+  "category": "new-projects",
+  "date": "2026-01-19",
+  "author": "Codem",
+  "content": "<h2>Venturing into Android Development</h2>\n<p>I recently gave Android Studio a second, more successful shot, diving into the world of mobile app development. Mastering mobile platforms is a major skill for any software developer, and this journey has been incredibly rewarding.</p>\n<h3>The Hybrid Innovation</h3>\n<p>I have developed a method to directly convert a website into a mobile app using IndexedDB for local memory. This approach creates a fully fledged application with offline functionality and seamless updates; any changes made to the website are instantly reflected in the app.</p>\n<h3>Persistent Experience and Distribution</h3>\n<p>A key feature of this system is that persistence stays across pages, making it a true game changer for user experience. I am currently working on a JSON-driven template that acts as an easy app builder, complete with custom icons. Once I secure an Android developer account, I plan to upload these projects to the Play Store.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my latest work and updates.</p>"
+}
