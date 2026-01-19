@@ -1,0 +1,9 @@
+{
+  "id": 32,
+  "title": "Project Ava: Fixing UI and App dev",
+  "excerpt": "Converting the Ava website into a custom Android APK and refining the UI layout.",
+  "category": "project-updates",
+  "date": "2026-01-19",
+  "author": "Codem",
+  "content": "<h2>Project Overview</h2>\n<p>Using my android template for app development in android studio I've been working on, I converted the ngrok Ava website into an APK for personal use.</p>\n<h3>UI Improvements and Fixes</h3>\n<p>I addressed a layout issue where the send button on the side was off-centered, ensuring better placement for mobile use.</p>\n<p>The website was further adjusted to improve the fitting for the app, utilizing the template that converts websites into native apps.</p>\n<p>Both the website and the app have been updated with new icons for a more professional look.</p>\n<h3>Future Plans</h3>\n<p>For the next phase of development, I am looking into implementing push notifications directly via the APK rather than relying on Termux.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my recent updates.</p>"
+}
