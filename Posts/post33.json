@@ -1,0 +1,9 @@
+{
+  "id": 33,
+  "title": "Central Hub: Applications",
+  "excerpt": "Streamlining remote setup management with a custom ZeroTier-hosted PWA.",
+  "category": "project-updates",
+  "date": "2026-01-31",
+  "author": "Codem",
+  "content": "<h2>Project Overview</h2>\n<p>Using ZeroTier and an npm js server, I decided it was time to upgrade my central hub. Managing everything via Google Drive and multiple shortcuts for command files was becoming a tedious process.</p>\n<h3>Streamlined Workflow</h3>\n<p>I developed a futuristic application using HTML and hosted it over a ZeroTier VPN. To make access seamless, I converted it into a PWA using my Android Studio JSON template, allowing for a fully functional mobile experience.</p>\n<h3>Features and Integration</h3>\n<p>Sending commands to my home setup is now effortless. I have implemented a live view of the first four files in both the confirmation and output folders of the mounted Google Drive, providing real-time visibility of processing and output files directly in the hub.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my projects.</p>"
+}
