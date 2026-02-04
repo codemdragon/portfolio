@@ -1,9 +1,0 @@
-{
-  "id": 34,
-  "title": "Tizen Studio Smart TV",
-  "excerpt": "Exploring Samsung Smart TV development using standard web technologies.",
-  "category": "discoveries",
-  "date": "2026-02-04",
-  "author": "Codem",
-  "content": "<h2>Exploring Smart TV Development</h2>\n<p>Curious to see how smart TV development worked for Samsung smart TVs, I looked into development and tools normally used. I found that it uses regular HTML CSS JS/web development. This can be an absolute game changer.</p>\n<h3>Getting Started</h3>\n<p>This opens up the window for app dev for smart TV and using the basic_empty in the vscode extension, its quite simple to set it up. There are a few things that need to be done.</p>\n<p>Certificate/security profile: you need to set up a Samsung certificate profile(easily done in vscode extension).</p>\n<p>Connect a Device: open the apps menu on the TV and enter in 1,2,3,4,5 in order. This will open a developers mode enable and give an IP address, switch that to the IP address of whatever you are developing on. Click Connect a device in the extension and select the TV(on the same LAN).</p>\n<h3>Development and Deployment</h3>\n<p>Now the fun part, as basic_empty comes with a template, your pretty much ready to modify HTML CSS JS as you please, but remember to add in configs for the button presses on the remote in main.js.</p>\n<p>Now select your Certificate, Connect your device, and click build project and then run project. Congrats you now have your app running on the TV. Still looking into how to store and export to the TV.</p>\n<p>You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my technical discoveries.</p>"
-}
