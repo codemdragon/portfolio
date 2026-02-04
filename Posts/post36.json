@@ -1,0 +1,9 @@
+{
+  "id": 36,
+  "title": "Central Hub Person Detection",
+  "excerpt": "Improving human detection accuracy by filtering out static objects like humanoid punching bags using motion tracking.",
+  "category": "project-updates",
+  "date": "2026-02-04",
+  "author": "Codem",
+  "content": "<h2>Project Overview</h2>\n<p>Using OpenCV, I had earlier implemented basic human detection as a command for the Central Hub. However, I encountered an issue where it constantly returned True for human presence.</p>\n<h3>The Challenge</h3>\n<p>Realizing this false positive was caused by a humanoid punching bag within the webcam's field of view, I had to refine the logic. It wasn't enough to just detect a 'person' shape.</p>\n<h3>The Solution</h3>\n<p>I updated the script to not only identify a person but also verify if the bounding box is moving. This logic allows the system to successfully differentiate between a living human and a static object. You can <a href='https://codemsportfolio.netlify.app' target='_blank'>check out my portfolio</a> to see more of my work.</p>"
+}
